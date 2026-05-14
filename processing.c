@@ -29,6 +29,13 @@
  *
  * Procesarea rulează în procese copil izolate (fork()) pentru a
  * preveni crash-ul serverului în caz de eroare în LibrosaC.
+
+
+RAPORT CLANG
+ 
+ alina@DESKTOP-91HP0RO:~/pcd-t31$ cd ~/pcd-t31 && clang-tidy server.c config_loader.c soapds.c client.c inetds2.c inetsample2.c threeds.c unixds.c src/server.c src/config_loader.c src/soapds.c src/client.c src/inetds2.c src/inetsample2.c src/threeds.c src/unixds.c -- -std=c11 -D_POSIX_C_SOURCE=200809L -I./include 2>&1 | grep "error:" | grep -v "note:" | wc -l
+151
+alina@DESKTOP-91HP0RO:~/pcd-t31$
  */
 
 #include <stdio.h>  /* Standard I/O */
